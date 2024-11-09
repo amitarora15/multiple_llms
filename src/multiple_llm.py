@@ -49,7 +49,10 @@ def generate_response(message, history, modal_types):
             response +=  "gpt-3.5-turbo response => " + llm.predict(input=message) + "\n"
         elif model_type.lower() == "Hugging_Face_Zephyr".lower():
             hf_llm = load_hf_model()
-            response +=  "Hugging Face Zephyr response => " + hf_llm.invoke(message)  + "\n"
+            #print(hf_llm.invoke(input=message))
+            hf_response = hf_llm.invoke(input=message)
+            hf_response = hf_response['response']
+            response +=  "Hugging Face Zephyr response => " + hf_response  + "\n"
         elif model_type.lower() == "gpt-4o-mini".lower():
             llm = load_gpt_model(model_type)
             response += "gpt-4o-mini response => " + llm.predict(input=message)  + "\n"

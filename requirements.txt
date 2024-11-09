@@ -1,0 +1,11 @@
+openai
+
+langchain
+langchain-openai
+langchain-core
+langchain-community
+langchain-huggingface
+
+gradio
+matplotlib
+pandas
